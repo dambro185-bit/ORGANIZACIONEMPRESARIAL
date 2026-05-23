@@ -39,7 +39,7 @@ with open("datos/datos.csv", "r", encoding="utf-8") as archivo:
 
         # Si la fecha pertenece a mayo de 2026,
         # acumulamos las ventas de ese mes.
-        if '2026-05' in fecha:
+        if '2026-05' in fecha:     #El filtro del mes está hardcodeado como '2026-05', si el CSV tuviera datos de otro año o se quisiera reutilizar el script habría que cambiarlo a mano. Se podría mejorar usando fecha_dt.month == 5 después de convertir a datetime, así es más flexible. Igual para el TP funciona perfecto, aprobado.
             ventas_del_mes += venta_total
 
         # Sumamos la cantidad vendida del producto.
@@ -53,7 +53,9 @@ with open("datos/datos.csv", "r", encoding="utf-8") as archivo:
         ventas_por_fecha[fecha_dt] += venta_total
 
 # Buscamos el producto con mayor cantidad vendida.
-producto_mas_vendido = max(ventas_productos, key=ventas_productos.get)
+producto_mas_vendido = max(ventas_productos, key=ventas_productos.get) # Se podría haber calculado el producto más vendido dentro del loop para ir actualizándolo fila por fila, pero hacerlo al final después de procesar todo el CSV es más eficiente porque evita llamar a max() en cada iteración. Buena decisión.
+
+
 
 # Mostramos resultados por pantalla.
 print(f'Producto más vendido: {producto_mas_vendido}')
