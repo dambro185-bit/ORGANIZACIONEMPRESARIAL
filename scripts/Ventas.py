@@ -14,7 +14,7 @@ ventas_totales = 0
 ventas_del_mes = 0
 
 # Abrimos el archivo CSV en modo lectura.
-with open("Unidad8/datos.csv", "r", encoding="utf-8") as archivo:
+with open("datos/datos.csv", "r", encoding="utf-8") as archivo:
 
     # Creamos el lector CSV usando ";" como separador.
     lector = csv.reader(archivo, delimiter=";")
@@ -95,7 +95,7 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 
 # Guardamos el gráfico como imagen PNG.
-plt.savefig("Unidad8/grafico_ventas.png")
+plt.savefig("resultados/grafico_ventas.png")
 
 # Mostramos el gráfico en pantalla.
 plt.show()
